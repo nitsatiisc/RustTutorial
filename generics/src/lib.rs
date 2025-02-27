@@ -1,6 +1,7 @@
 pub mod points;
 pub mod largest;
 pub mod lifetimes;
+pub mod iterator;
 
 #[cfg(test)]
 mod tests {
@@ -46,6 +47,10 @@ mod tests {
     #[test]
     fn test_ref_iterator() {
         let mut my_matrix = Matrix::new(&vec![vec![0,1,2],vec![3,4,5],vec![6,7,8]]);
+        let row1 = my_matrix.next().unwrap();
+        println!("Sum of row = {}", sum_row(row1));
+        let row2 = my_matrix.next().unwrap();
+        println!("Sum or row = {}", sum_row(row2));
         while let Some(row) = my_matrix.next() {
             println!("Sum of row = {}", sum_row(row));
         }

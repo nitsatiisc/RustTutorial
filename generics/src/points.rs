@@ -54,6 +54,8 @@ impl Display for SimplePoint {
     }
 }
 
+// ---------------------------------- Now we make a generic point --------------------------------------//
+
 #[derive(Clone,Debug, Copy)]
 pub struct Point<T>
 {
