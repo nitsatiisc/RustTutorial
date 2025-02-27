@@ -1,0 +1,9 @@
+[workspace]
+members = [ "closures","generics"
+		# Crate for Generics and Traits
+]
+resolver = "2"
+
+[workspace.dependencies]
+serde_json = "1.0.139"
+petgraph = "0.7.1"
