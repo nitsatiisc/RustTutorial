@@ -1,4 +1,11 @@
 
+pub fn bigger_num<'a>(x:&'a u32, y:&'a u32) -> &'a u32 {
+    if x > y {
+        x
+    } else {
+        y
+    }
+}
 
 pub struct VecVec<'a> {
     pub vec_vec: Vec<&'a Vec<u32>>,

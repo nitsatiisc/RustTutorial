@@ -7,6 +7,7 @@ pub mod iterator;
 mod tests {
     use crate::largest::{largest, MyVector};
     use crate::iterator::{sum_row, Matrix, RefIterator};
+    use crate::lifetimes::bigger_num;
     use crate::points::{Point, SimplePoint};
     use super::*;
 
@@ -65,5 +66,16 @@ mod tests {
         while let Some(row) = my_matrix.next() {
             println!("Sum of row = {}", sum_row(row));
         }
+    }
+
+    #[test]
+    fn test_lifetime() {
+        let c;
+        let a = 10u32;
+        {
+            let b = 20u32;
+            c = bigger_num(&a, &b);
+        }
+        println!("The bigger number is {}",c);
     }
 }
