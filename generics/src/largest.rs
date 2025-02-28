@@ -51,7 +51,11 @@ impl<T: Clone>  MyIterator  for MyVector<T> {
 // enforce the trait bound PartialOrd on the underlying Item type of the iterator.
 // For convenience, we also demand that Items be Copy, i.e, every assignment makes a new copy
 // of the item (instead of the ownership transfer)
-pub fn largest<T: MyIterator<Item: PartialOrd + Copy>>(iterable: &mut T)->Option<T::Item> {
+pub fn largest<T>(iterable: &mut T)->Option<T::Item>
+where
+    T: MyIterator,
+    T::Item: PartialOrd + Copy
+{
     let mut maxval: Option<T::Item> = None;
     //let mut val = iterable.next();
     while let Some(val) = iterable.next() {
