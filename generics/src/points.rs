@@ -63,6 +63,23 @@ pub struct Point<T>
     pub y: T,
 }
 
+impl<T> Point<T> {
+    pub fn new(x: T, y: T) -> Self {
+        Point::<T> {
+            x,
+            y,
+        }
+    }
+}
+
+impl<T> Point<T>
+where T: Clone + Add<Output=T> {
+    pub fn double(&mut self) {
+        self.x = self.x.clone() + self.x.clone();
+        self.y = self.y.clone() + self.y.clone();
+    }
+}
+
 // We can define addition on points when the type
 // T safisfies trait bound Add<Output=T>, i.e, T can be added
 // to itself with result being T again.

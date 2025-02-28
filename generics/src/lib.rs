@@ -6,7 +6,7 @@ pub mod iterator;
 #[cfg(test)]
 mod tests {
     use crate::largest::{largest, MyVector};
-    use crate::lifetimes::{sum_row, Matrix, RefIterator};
+    use crate::iterator::{sum_row, Matrix, RefIterator};
     use crate::points::{Point, SimplePoint};
     use super::*;
 
@@ -25,6 +25,17 @@ mod tests {
 
         println!("p1 = {:?}, p2 = {:?}, p3 = {:?}", p1, p2, p3);
         println!("p1={}, p2={}, p3={}", p1, p2, p3);
+    }
+
+    #[test]
+    fn test_generic_point() {
+        let mut p1: Point<f32> = Point { x: 5.6, y: 2.2 };
+        p1.double();
+        println!("p1 = {}", p1);
+
+        let mut p1: Point<SimplePoint> = Point { x: SimplePoint::new(10, 20), y: SimplePoint::new(5, 11) };
+        p1.double();
+        println!("p1 = {}", p1);
     }
 
     #[test]
